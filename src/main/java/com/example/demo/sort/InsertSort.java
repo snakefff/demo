@@ -7,6 +7,11 @@ import java.util.Random;
 
 /***
  * 插入排序-直接插入排序
+ *
+ * 从第i位开始，i值跟前面的数比较(i初始值是1，不断变大直到最后)
+ *  如果前面的数较大，前面的数后移一位
+ *  如果前面的数较小，原第i位的值插入到该位置（因为第i位前的数已经排序过，是有序的，所以可以直接插入）
+ *
  * 还有一种是插入排序是希尔排序
  */
 public class InsertSort {
@@ -47,12 +52,12 @@ public class InsertSort {
     public static int[] sort(int[] nums){
         int count = 0; //统计插入值前移次数
         for (int i = 1;i < nums.length;i++){
-            int insertVal = nums[i];
-            int insertIndex = i;
+            int insertVal = nums[i]; //临时保存插入值
+            int insertIndex = i;  //插入的索引默认为i,即位置不变
             //后移循环
             //如果insertIndex大于0，并且插入位置inserIndex的上一个值大于插入位置，插入位置就该前移，并且上一个值后移
             while (insertIndex > 0 && nums[insertIndex-1] >insertVal){
-                nums[insertIndex] = nums[insertIndex -1];
+                nums[insertIndex] = nums[insertIndex -1]; //
                 insertIndex--;
                 count++;
             }

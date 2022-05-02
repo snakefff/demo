@@ -20,7 +20,7 @@ import java.util.Random;
  *  *  * 数据：80000 用时：62ms
  *  *  * 数据：800000 用时：124ms
  *  *  * 数据：8000000 用时：748ms  执行堆内存溢出java.lang.OutOfMemoryError: Java heap space 修改为-Xmx500m才可成功
- *  80万数据时 相对归并排序的1069ms来说要更快，但是占用的内存更多，导致了堆内存溢出
+ *  800万数据时 相对归并排序的1069ms来说要更快，但是占用的内存更多，导致了堆内存溢出
  */
 public class RadixSort {
     public static void main(String[] args) {
@@ -31,7 +31,7 @@ public class RadixSort {
         }
 //        System.out.println("排序前的数据："+ Arrays.toString(arr));
         Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         int[] sortedNums = radixSort(arr);
         Date date1 = new Date();
 //        System.out.println("排序后的数据："+ Arrays.toString(sortedNums));

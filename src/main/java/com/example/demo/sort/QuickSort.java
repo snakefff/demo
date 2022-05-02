@@ -27,12 +27,22 @@ public class QuickSort {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         System.out.println("开始排序");
-        int[] sortedNums = quickSort(sortNums,0,sortNums.length-1);
+
+        int[] sortedNums = new QuickSort().sort(sortNums,0,sortNums.length-1);
         Date date1 = new Date();
 //        System.out.println("排序后的数据："+ Arrays.toString(sortedNums));
         System.out.println("排序前时间："+simpleDateFormat.format(date));
         System.out.println("排序后时间"+simpleDateFormat.format(date1));
         System.out.println("用时："+(date1.getTime()-date.getTime()));
+    }
+
+    /**
+     * 重载sort方法
+     * @param arr 需要排序的数组
+     * @return 排序后的数组
+     */
+    public int[] sort(int[] arr){
+        return sort(arr,0,arr.length-1);
     }
 
     /**
@@ -43,7 +53,7 @@ public class QuickSort {
      * @param last  最后一个下标
      * @return
      */
-    public static int[] quickSort(int[] arr,int first,int last){
+    public int[] sort(int[] arr,int first,int last){
         int midVal = arr[(first+last)/2]; //中值，
         int left =first;    //左指针
         int right = last;   //右指针
@@ -74,57 +84,17 @@ public class QuickSort {
         //这一个判断很关键，保证了 当left==right时，arr[left] ==midVal;
         // 也就是说midVal的索引已经确定是left，下一次递归的时候就不用再排这个索引的数
         //继续延伸，也就是说每次快速排序都能确定一个中值的索引位置。所以快速排序实际递归的次数最多为arr.length()-1
-        // ;
         if (left == right){
             left++;
             right--;
         }
         if (right>first){
-            quickSort(arr,first,right);
+            sort(arr,first,right);
         }
         if (left<last){
-            quickSort(arr,left,last);
+            sort(arr,left,last);
         }
         return arr;
     }
-
-//    public static int[] quickSort(int[] arr, int left, int right) {
-//        int l = left;
-//        int r = right;
-//        int pivot = arr[(left + right) / 2];
-//        int temp = 0;
-//        while (l < r) {
-//            while (arr[l] < pivot) {
-//                l += 1;
-//            }
-//            while (arr[r] > pivot) {
-//                r -= 1;
-//            }
-//            if (l >= r) {
-//                break;
-//            }
-//            temp = arr[l];
-//            arr[l] = arr[r];
-//            arr[r] = temp;
-//            if (arr[l] == pivot) {
-//                r -= 1;
-//            }
-//            if (arr[r] == pivot) {
-//                l += 1;
-//            }
-//        }
-//        if (l == r) {
-//            l += 1;
-//            r -= 1;
-//        }
-//        if (left < r) {
-//            quickSort(arr, left, r);
-//        }
-//        if (right > l) {
-//            quickSort(arr, l, right);
-//        }
-//        return arr;
-//    }
-
 
 }

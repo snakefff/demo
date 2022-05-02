@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.List;
 
 import java.util.Scanner;
 
@@ -50,6 +50,15 @@ public class ArrayQuequeTest {
     }
 }
 
+/**
+ * 数组模拟队列，
+ * 特点：
+ * 1 先进先出
+ * 2 由front指向队列头，初始值为0，指向当前要取出来的值
+ *   由rear指向队列尾，指向队列尾，初始值也为0，指向队列最后一个数据的下一个位置
+ *   如：{5,1,2,5,2,0}(最后数0是环形队列预留位，代表null)
+ *      front=0   rear=5
+ */
 class ArrayQueque{
     int[] array ; //模拟队列的数组
     int front;  //指向队列头，初始值为0，指向当前要取出来的值

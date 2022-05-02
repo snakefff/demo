@@ -75,11 +75,13 @@ public class SelectSort {
         int min;  //临时变量，用来保存当前最小值
         int minIndex = 0;
         int count = 0;
-        int forICount = 0;
-        long forJcount =0;
+        int forICount = 0; //计算进入第一层循环的次数
+        long forJcount =0; //计算进入第二层循环的次数
         for (int i = 0 ;i<nums.length;i++){
             forICount++;
             min = nums[i];
+            minIndex = i;
+            //循环比较第i位后面的数，获取到最小值
             for (int j = i+1;j < nums.length;j++){
                 forJcount++;
                 if (min>nums[j]){
@@ -88,8 +90,9 @@ public class SelectSort {
                     minIndex = j;
                 }
             }
-            nums[minIndex] = nums[i];
-            nums[i] = min;
+            //将第i位的值 和 原本存放最小值的位置的值交换
+            nums[minIndex] = nums[i]; //原存放最小值的位置存i
+            nums[i] = min; //i位存最小值
 //            System.out.println("第"+i+"次排序的结果为："+ Arrays.toString(nums));
         }
         System.out.println("sort2进入第一层for次数："+forICount);
