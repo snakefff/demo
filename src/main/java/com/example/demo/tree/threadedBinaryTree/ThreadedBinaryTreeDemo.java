@@ -1,6 +1,12 @@
 package com.example.demo.tree.threadedBinaryTree;
 
-
+/**
+ * 线索化二叉树
+ * 即如果左节点为空，左节点线索化标记leftType为1,左节点就指向上一个节点，
+ * 如果右节点为空，右节点线索化标记rightType为1，右节点就指向下一个节点；
+ * 基础应用：在做中序遍历时，可以确定left节点就是上一个节点，right节点就是下一个节点
+ *      这里我为了练习，写的时候用了前序遍历
+ */
 public class ThreadedBinaryTreeDemo {
 
     public static void main(String[] args) {
@@ -46,7 +52,7 @@ class HeroNode {
     HeroNode left = null; //左节点
     HeroNode right = null; //右节点
     int leftType; //左指针是否被线索化 默认0为否，1为已经线索化过
-    int rightThread; //右指针是否被线索化 默认0为否，1为已经线索化过
+    int rightType; //右指针是否被线索化 默认0为否，1为已经线索化过
 
     HeroNode preNode; //前驱节点
 
@@ -60,7 +66,7 @@ class HeroNode {
         //前一个节点的右指针为空，设置其后继节点为当前节点
         if (preNode != null && preNode.right == null) {
             preNode.right = this;
-            preNode.rightThread = 1;
+            preNode.rightType = 1;
         }
         //左指针为空，设置前驱节点
         if (this.left == null){

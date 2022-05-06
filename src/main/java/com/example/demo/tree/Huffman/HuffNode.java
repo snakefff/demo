@@ -4,7 +4,7 @@ package com.example.demo.tree.Huffman;
  *
  */
 public class HuffNode implements Comparable<HuffNode>{
-    private String key; //保存的值
+    private Byte key; //保存的值
     private int value; //权值
     private HuffNode left; //左节点
     private HuffNode right; // 右节点
@@ -13,16 +13,16 @@ public class HuffNode implements Comparable<HuffNode>{
         this.value = value;
     }
 
-    public HuffNode(String key, int value) {
+    public HuffNode(Byte key, int value) {
         this.key = key;
         this.value = value;
     }
 
-    public String getKey() {
+    public Byte getKey() {
         return key;
     }
 
-    public void setKey(String key) {
+    public void setKey(Byte key) {
         this.key = key;
     }
 

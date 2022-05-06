@@ -25,11 +25,12 @@ import java.util.Random;
  */
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = new int[8];
-        Random random = new Random();
-        for(int i = 0;i<8;i++){
-            arr[i] = random.nextInt(80);
-        }
+//        int[] arr = new int[8];
+//        Random random = new Random();
+//        for(int i = 0;i<8;i++){
+//            arr[i] = random.nextInt(80);
+//        }
+        int[] arr = {2,1,4,2,1,5,1};
         int[] temp = new int[arr.length];
         System.out.println("排序前的数据："+ Arrays.toString(arr));
         Date beforeDate = new Date();
@@ -49,16 +50,19 @@ public class MergeSort {
     public static int[] mergeSort(int[] arr, int left, int right ,int[] temp){
         int mid = (left + right)/2;
         if (left<right){
+            //分
             mergeSort(arr,left,mid,temp);
             mergeSort(arr,mid+1,right,temp);
+            //合并
             merge(arr,left,mid,right,temp);
+            System.out.println(Arrays.toString(arr));
         }
         return arr;
     }
 
     public static void merge(int[] arr, int left,int mid, int right, int[] temp){
-        int l = left;  //左边数组索引
-        int r = mid+1; //右边数组索引
+        int l = left;  //左边数组的起始索引
+        int r = mid+1; //右边数组的起始索引
         int t = 0; //temp的索引
         //(1)依次比较左右两边的数
         //只要两边的数都没查完，就继续比较，小的一个数进入temp数组中

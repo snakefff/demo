@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.Random;
 
 /**
- * 堆排序（堆其实指的的一个二叉树）
+ * 堆排序（堆其实指的的一个二叉树的大顶堆或者小顶堆）
  * 结合二叉树和插入排序的一种排序方式
  * 时间复杂度为nlog(n)
- * 如果有几个数相等，无法保证数的顺序仍然是排序前的顺序，所以具有不稳定性
+ * 不稳定性：如果有几个数相等，无法保证数排序后的顺序仍然是排序前的顺序，所以具有不稳定性
  * 8百万1695ms(1.7s)
  */
 public class HeapSort {
@@ -44,6 +44,7 @@ public class HeapSort {
             adjustHeap(arr,i,arr.length);
         }
         //将大顶堆的顶位和尾位交换位置，然后除去尾位再生成大顶堆，如此循环
+        //maxIndex当前最大索引
         for (int maxIndex = arr.length-1; maxIndex >0 ; maxIndex--) {
             //顶尾交换位置
             int temp = arr[0];
@@ -59,14 +60,14 @@ public class HeapSort {
      * 调整堆（数组）中的值，使得堆不断接近大顶堆，最终会成为大顶堆
      *
      * @param arr    排序的数组
-     * @param i      该次执行比较的值的索引
+     * @param i      该次执行比较的值的索引，第i位会跟左右节点比较，最终取出最大的一个节点为父节点
      * @param length 比较的数组长度，会越来越小
      */
     public void adjustHeap(int[] arr, int i, int length) {
         int temp = arr[i];//临时值，用于比较
         for (int k = i * 2 + 1; k < length; k = k * 2 + 1) { //由上往下比较temp值，大于temp值的数上移
             //比较左右节点的大小
-            if ((k+1)<length && arr[k] < arr[k + 1]) {//右节点大于左节点
+            if ((k+1)<length && arr[k] < arr[k + 1]) {//右节点大于左节点，则右节点作为比较节点
                 k = k + 1;
             }
             //临时值和左右节点中大的值比较
