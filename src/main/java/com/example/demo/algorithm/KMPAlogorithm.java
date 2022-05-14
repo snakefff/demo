@@ -32,7 +32,9 @@ public class KMPAlogorithm {
     public int KMPSearch(String mianString, String subString) {
         int[] next = kmpNext(subString);
         for (int i = 0, j = 0; i < mianString.length(); i++) {
-            while (j>0 && mianString.charAt(i) != subString.charAt(j)) { //j大于0代表至少有一个值匹配上了，当前值没匹配上，j归0，i回退。（不能用if)
+            //j大于0代表至少有一个值匹配上了，当前值没匹配上，j归0，i回退。
+            // 不能用if,因为i跟当前j不匹配后，还需要判断是否跟上一层j匹配，直到j的值跟i匹配或者j==0;
+            while (j>0 && mianString.charAt(i) != subString.charAt(j)) {
                 j = next[j-1];  //j-1是当前比较值j的前一位
             }
             if (mianString.charAt(i) == subString.charAt(j)) {
