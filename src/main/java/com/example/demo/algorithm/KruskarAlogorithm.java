@@ -73,7 +73,7 @@ public class KruskarAlogorithm {
         EData[] edges = getEdges();
         System.out.println(Arrays.toString(edges) + edges.length);
         // 将边按照"权"的大小进行排序(从小到大)
-        sortEdges(edges, edges.length);
+        sortEdges(edges);
 
         for (int i=0; i<edgeNum; i++) {
             int p1 = getPosition(edges[i].start);      // 获取第i条边的"起点"的序号
@@ -120,7 +120,7 @@ public class KruskarAlogorithm {
     /*
      * 对边按照权值大小进行排序(由小到大)
      */
-    private void sortEdges(EData[] edges, int elen) {
+    private void sortEdges(EData[] edges) {
 
         for (int i=0; i<edges.length - 1; i++) {
             for (int j=0; j<edges.length - 1 - i; j++) {
