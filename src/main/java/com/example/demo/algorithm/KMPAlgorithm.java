@@ -5,18 +5,18 @@ import java.util.Arrays;
 /**
  * 通过kmp算法从一个字符串匹配另一个字符串
  */
-public class KMPAlogorithm {
+public class KMPAlgorithm {
 
     public static void main(String[] args) {
-        KMPAlogorithm kmpAlogorithm = new KMPAlogorithm();
+        KMPAlgorithm kmpAlgorithm = new KMPAlgorithm();
         String mainString = "ABCABCABCABCCBC0ABCABCABABCABCCBC0ABCABCABCDCDEF";
         String subString = "ABCABCCBC0ABCABCABCD";
-        int index = kmpAlogorithm.KMPSearch(mainString,subString);
+        int index = kmpAlgorithm.KMPSearch(mainString,subString);
         int index1 = KMPSearch1(mainString,subString);
         System.out.println("下标：" + index);
         System.out.println("教程下标：" + index1);
 
-        int[] next = kmpAlogorithm.kmpNext(subString);
+        int[] next = kmpAlgorithm.kmpNext(subString);
         int[] next1 = kmpNext1(subString);
         System.out.println("我的next[]:" + Arrays.toString(next));
         System.out.println("老师的next[]:" + Arrays.toString(next1));

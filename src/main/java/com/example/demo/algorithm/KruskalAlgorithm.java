@@ -2,7 +2,7 @@ package com.example.demo.algorithm;
 
 import java.util.Arrays;
 
-public class KruskarAlogorithm {
+public class KruskalAlgorithm {
 
 //代码实现
 
@@ -18,7 +18,7 @@ public class KruskarAlogorithm {
      *     vexs  -- 顶点数组
      *     matrix-- 矩阵(数据)
      */
-    public KruskarAlogorithm(char[] vertexs, int[][] matrix) {
+    public KruskalAlgorithm(char[] vertexs, int[][] matrix) {
 
 
         // 初始化"顶点数"和"边数"
@@ -180,10 +180,10 @@ public class KruskarAlogorithm {
 
 
         // 自定义"图"(输入矩阵队列)
-        KruskarAlogorithm kruskarAlogorithm = new KruskarAlogorithm(vexs, matrix);
+        KruskalAlgorithm kruskalAlgorithm = new KruskalAlgorithm(vexs, matrix);
 
-        kruskarAlogorithm.print();   // 打印图
-        kruskarAlogorithm.kruskal();   // Kruskal算法生成最小生成树
+        kruskalAlgorithm.print();   // 打印图
+        kruskalAlgorithm.kruskal();   // Kruskal算法生成最小生成树
     }
 }
 

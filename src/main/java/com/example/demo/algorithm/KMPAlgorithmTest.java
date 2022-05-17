@@ -2,12 +2,12 @@ package com.example.demo.algorithm;
 
 import java.util.Arrays;
 
-public class KMPAlogorithmTest {
+public class KMPAlgorithmTest {
     public static void main(String[] args) {
-        KMPAlogorithmTest kmpAlogorithmTest = new KMPAlogorithmTest();
+        KMPAlgorithmTest kmpAlgorithmTest = new KMPAlgorithmTest();
         String mainString = "abeicabc abcabccabcabc kdasdf";
         String subString = "abcabccabcabc";
-        int index = kmpAlogorithmTest.kmpSearch(mainString, subString);
+        int index = kmpAlgorithmTest.kmpSearch(mainString, subString);
         if (index == -1) {
             System.out.println("没找到对应的字符串");
         } else {

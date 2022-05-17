@@ -1,6 +1,6 @@
 package com.example.demo.algorithm;
 
-public class PrimAlogorithm {
+public class PrimAlgorithm {
     private static final int N = Integer.MAX_VALUE; //常量，代表边的最大值，即这条边不存在
     
     public static void main(String[] args) {

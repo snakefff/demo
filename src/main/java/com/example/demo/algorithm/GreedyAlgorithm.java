@@ -9,10 +9,10 @@ import java.util.Set;
  * 贪心算法
  * 实现问题：用最少广播站覆盖所有地区问题
  */
-public class GreedyAlogorithm {
+public class GreedyAlgorithm {
 
     public static void main(String[] args) {
-        GreedyAlogorithm greedyAlogorithm = new GreedyAlogorithm();
+        GreedyAlgorithm greedyAlgorithm = new GreedyAlgorithm();
         Map<String, Set<String>> broadcasts = new HashMap<>();
         Set<String> k1 = new HashSet<>();
         k1.add("北京");
@@ -40,7 +40,7 @@ public class GreedyAlogorithm {
         k5.add("武汉");
         k5.add("成都");
         broadcasts.put("k5", k5);
-        Set<String> allArea = greedyAlogorithm.getGreedyGroup(broadcasts);
+        Set<String> allArea = greedyAlgorithm.getGreedyGroup(broadcasts);
         System.out.println("最优组合为：" + allArea);
 
     }

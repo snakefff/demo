@@ -2,7 +2,7 @@ package com.example.demo.algorithm;
 
 import java.util.*;
 
-public class KruskarAlogorithmTest {
+public class KruskalAlgorithmTest {
     private static final int INF = Integer.MAX_VALUE;
 
     public static void main(String[] args) {
