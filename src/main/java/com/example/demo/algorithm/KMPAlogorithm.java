@@ -3,7 +3,7 @@ package com.example.demo.algorithm;
 import java.util.Arrays;
 
 /**
- * 通过kmp算法查找string字符串的匹配值
+ * 通过kmp算法从一个字符串匹配另一个字符串
  */
 public class KMPAlogorithm {
 
