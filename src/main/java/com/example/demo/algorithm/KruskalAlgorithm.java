@@ -2,6 +2,15 @@ package com.example.demo.algorithm;
 
 import java.util.Arrays;
 
+/**
+ * 克鲁斯卡尔算法
+ *  求最短路径问题
+ *  求覆盖所有公交站的最短路径
+ *  跟克鲁斯卡尔算法的 区别：
+ *      普林姆算法：每次从已选取节点的周边选取一个路径最短的新节点加入进来
+ *      克鲁斯卡尔算法：每次选择路径最短的一条路线，只要路线之间不会形成回路，就加入进来
+ */
+
 public class KruskalAlgorithm {
 
 //代码实现
@@ -11,6 +20,40 @@ public class KruskalAlgorithm {
     private char[] vertexs;       // 顶点集合
     private int[][] matrix;    // 邻接矩阵
     private static final int INF = Integer.MAX_VALUE;   // 最大值
+
+    public static void main(String[] args) {
+        char[] vexs = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+
+        //克鲁斯卡尔算法的邻接矩阵
+        int[][] matrix = {
+                /*A*//*B*//*C*//*D*//*E*//*F*//*G*/
+                /*A*/ {   0,  12, INF, INF, INF,  16,  14},
+                /*B*/ {  12,   0,  10, INF, INF,   7, INF},
+                /*C*/ { INF,  10,   0,   3,   5,   6, INF},
+                /*D*/ { INF, INF,   3,   0,   4, INF, INF},
+                /*E*/ { INF, INF,   5,   4,   0,   2,   8},
+                /*F*/ {  16,   7,   6, INF,   2,   0,   9},
+                /*G*/ {  14, INF, INF, INF,   8,   9,   0}};
+
+        //原理普利姆算法的邻接矩阵
+//        int matrix[][] = {
+//                /*A*//*B*//*C*//*D*//*E*//*F*//*G*/
+//         /*A*/ {   10000,  5, 7, 10000, 10000,  10000,  2},
+//         /*B*/ {  5,   10000,  10000, 9, 10000,   10000, 3},
+//         /*C*/ { 7,  10000,   10000,   10000,   8,   10000, 10000},
+//         /*D*/ { 10000, 9,   10000,   10000,   10000, 4, 10000},
+//         /*E*/ { 10000, 10000,   8,   10000,   10000,   5,   4},
+//         /*F*/ {  10000,   10000,   10000, 4,   5,   10000,   6},
+//         /*G*/ {  2, 3, 10000, 10000,   4,   6,   10000}};
+
+
+
+        // 自定义"图"(输入矩阵队列)
+        KruskalAlgorithm kruskalAlgorithm = new KruskalAlgorithm(vexs, matrix);
+
+        kruskalAlgorithm.print();   // 打印图
+        kruskalAlgorithm.kruskal();   // Kruskal算法生成最小生成树
+    }
     /*
      * 创建图(用已提供的矩阵)
      *
@@ -152,39 +195,7 @@ public class KruskalAlgorithm {
     }
 
 
-    public static void main(String[] args) {
-        char[] vexs = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
 
-        //克鲁斯卡尔算法的邻接矩阵
-        int[][] matrix = {
-                /*A*//*B*//*C*//*D*//*E*//*F*//*G*/
-                /*A*/ {   0,  12, INF, INF, INF,  16,  14},
-                /*B*/ {  12,   0,  10, INF, INF,   7, INF},
-                /*C*/ { INF,  10,   0,   3,   5,   6, INF},
-                /*D*/ { INF, INF,   3,   0,   4, INF, INF},
-                /*E*/ { INF, INF,   5,   4,   0,   2,   8},
-                /*F*/ {  16,   7,   6, INF,   2,   0,   9},
-                /*G*/ {  14, INF, INF, INF,   8,   9,   0}};
-
-        //原理普利姆算法的邻接矩阵
-//        int matrix[][] = {
-//                /*A*//*B*//*C*//*D*//*E*//*F*//*G*/
-//         /*A*/ {   10000,  5, 7, 10000, 10000,  10000,  2},
-//         /*B*/ {  5,   10000,  10000, 9, 10000,   10000, 3},
-//         /*C*/ { 7,  10000,   10000,   10000,   8,   10000, 10000},
-//         /*D*/ { 10000, 9,   10000,   10000,   10000, 4, 10000},
-//         /*E*/ { 10000, 10000,   8,   10000,   10000,   5,   4},
-//         /*F*/ {  10000,   10000,   10000, 4,   5,   10000,   6},
-//         /*G*/ {  2, 3, 10000, 10000,   4,   6,   10000}};
-
-
-
-        // 自定义"图"(输入矩阵队列)
-        KruskalAlgorithm kruskalAlgorithm = new KruskalAlgorithm(vexs, matrix);
-
-        kruskalAlgorithm.print();   // 打印图
-        kruskalAlgorithm.kruskal();   // Kruskal算法生成最小生成树
-    }
 }
 
 //EData 的一个对象，表示一条边, 形式 <E,F> 3

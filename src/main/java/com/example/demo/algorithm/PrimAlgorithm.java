@@ -1,5 +1,14 @@
 package com.example.demo.algorithm;
 
+
+/**
+ * 普利姆算法
+ *     目的：求修路问题，修最短的路覆盖所有村庄
+ * 跟克鲁斯卡尔算法的 区别：
+ *     普林姆算法：每次从已选取节点的周边选取一个路径最短的新节点加入进来
+ *     克鲁斯卡尔算法：每次选择路径最短的一条路线，只要路线之间不会形成回路，就加入进来
+ *
+ */
 public class PrimAlgorithm {
     private static final int N = Integer.MAX_VALUE; //常量，代表边的最大值，即这条边不存在
     
